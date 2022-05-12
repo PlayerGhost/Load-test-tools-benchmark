@@ -1,0 +1,10 @@
+{
+	"scripts": {
+		"remote": "k6 run src/index.js -e BASE_URL=REMOTE -e ROUTE=${ROUTE} -e MAX_USERS=${MAX_USERS} -out csv=${FILENAME}.csv",
+		"local": "k6 run src/index.js -e BASE_URL=LOCAL -e ROUTE=${ROUTE} -e MAX_USERS=${MAX_USERS} -out csv=${FILENAME}.csv",
+		"custom_metric": "k6 run src/index-2.js -e BASE_URL=LOCAL -e ROUTE=${ROUTE} -e MAX_USERS=${MAX_USERS} -out csv=${FILENAME}.csv"
+	},
+	"dependencies": {
+		"k6": "^0.0.0"
+	}
+}

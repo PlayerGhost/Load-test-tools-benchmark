@@ -1,0 +1,12 @@
+TestsDataTreatment/eth-vs-ton-b8e005fda44c.json
+TestsDataTreatment/.idea
+TestsDataTreatment/venv
+Tools/K6/.vscode
+Tools/K6/node_modules
+Tools/K6/.idea
+Tools/K6/venv
+Tools/VegetaTestScript/.idea
+Tools/VegetaTestScript/venv
+Tools/K6/.tool-versions
+.history
+Tools/K6/eth-vs-ton-b8e005fda44c.json

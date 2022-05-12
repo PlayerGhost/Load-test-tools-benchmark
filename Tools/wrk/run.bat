@@ -1,0 +1,1 @@
+wsl --distribution Ubuntu --user ghost python3 main.py
