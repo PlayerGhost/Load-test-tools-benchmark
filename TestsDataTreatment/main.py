@@ -17,7 +17,7 @@ def getMetricsResults(durations):
     # return [str(minValue).replace(".", ","), str(meanValue).replace(".", ","), str(percentileValue).replace(".", ","), str(medianValue).replace(".", ",")]
 
 
-def getLatenciesPerMethod(k6, vegeta, wrk, jmeter):
+def getLatenciesPerMethod(k6, vegeta, wrk, jmeter, metric):
     metrics = [
         np.array_split(k6, 3),
         np.array_split(vegeta, 3),
@@ -31,9 +31,9 @@ def getLatenciesPerMethod(k6, vegeta, wrk, jmeter):
 
     for tool in metrics:
         for j in range(len(tool)):
-            getMethod[j].append(float(tool[0][j]["med"]))
-            streamMethod[j].append(float(tool[1][j]["med"]))
-            dripMethod[j].append(float(tool[2][j]["med"]))
+            getMethod[j].append(float(tool[0][j][metric]))
+            streamMethod[j].append(float(tool[1][j][metric]))
+            dripMethod[j].append(float(tool[2][j][metric]))
 
     return [getMethod, streamMethod, dripMethod]
 
@@ -196,7 +196,8 @@ if __name__ == '__main__':
     metricsWrk = getMetricsWrk()
     metricsJmeter = getMetricsJmeter()
 
-    medianas = getLatenciesPerMethod(metricsK6, metricsVegeta, metricsWrk, metricsJmeter)
+    medianas = getLatenciesPerMethod(metricsK6, metricsVegeta, metricsWrk, metricsJmeter, "med")
+    medias = getLatenciesPerMethod(metricsK6, metricsVegeta, metricsWrk, metricsJmeter, "avg")
 
     metricsK6NewMetric = getMetricsK6NewMetric()
 
@@ -205,6 +206,7 @@ if __name__ == '__main__':
     print(metricsWrk)
     print(metricsJmeter)
     print(medianas)
+    print(medias)
     print(metricsK6NewMetric)
 
     updateSheet(sheet, metricsK6, 3, 17)
@@ -212,8 +214,8 @@ if __name__ == '__main__':
     updateSheet(sheet, metricsWrk, 39, 53)
     updateSheet(sheet, metricsJmeter, 57, 71)
 
-    updateSheetPerMethod(sheet, medianas[0], 3, 6)
-    updateSheetPerMethod(sheet, medianas[1], 10, 13)
-    updateSheetPerMethod(sheet, medianas[2], 17, 20)
+    updateSheetPerMethod(sheet, medias[0], 3, 6)
+    updateSheetPerMethod(sheet, medias[1], 10, 13)
+    updateSheetPerMethod(sheet, medias[2], 17, 20)
 
     updateSheet(sheet, metricsK6NewMetric, 2, 6, isNewMetric=True)

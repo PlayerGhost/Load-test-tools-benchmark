@@ -10,3 +10,4 @@ Tools/VegetaTestScript/venv
 Tools/K6/.tool-versions
 .history
 Tools/K6/eth-vs-ton-b8e005fda44c.json
+prometheusScrapping/eth-vs-ton-b8e005fda44c.json

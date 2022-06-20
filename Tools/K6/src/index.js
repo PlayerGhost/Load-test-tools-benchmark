@@ -15,6 +15,7 @@ export const options = {
 			executor: 'constant-vus',
 			vus: maxUsers,
 			duration: '5m',
+			//duration: '5s',
 			gracefulStop: '0s'
 		}
 	}
