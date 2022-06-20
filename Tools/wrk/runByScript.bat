@@ -1,0 +1,9 @@
+wsl --distribution Ubuntu --user ghost python3 main1.py
+wsl --distribution Ubuntu --user ghost python3 main2.py
+wsl --distribution Ubuntu --user ghost python3 main3.py
+wsl --distribution Ubuntu --user ghost python3 main4.py
+wsl --distribution Ubuntu --user ghost python3 main5.py
+wsl --distribution Ubuntu --user ghost python3 main6.py
+wsl --distribution Ubuntu --user ghost python3 main7.py
+wsl --distribution Ubuntu --user ghost python3 main8.py
+wsl --distribution Ubuntu --user ghost python3 main9.py
